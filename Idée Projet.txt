@@ -1,0 +1,55 @@
+Titanic :
+
+Lister les noms des personnes a bord
+Lister les survivants / morts
+Ajouter un naufragé
+Changer l'identité
+Retirer l'identité
+
+Bonjour,
+
+Le projet en Base de données que nous faisons (Matthias Fontaine) et moi même se fera sur le thème du Titanic (Croisiere)
+On peut ajouter un client / modifier ses choix
+On peut ajouter les factures
+On peut supprimer
+Former les groupes
+
+Tables :
+
+Batiments (bateau) (id_batiment, superficie, nb_chambre, id_chambre)
+Client (nom, prenom, age, sexe, id_reservation ,id_client* ,(Survecu) )
+Reservation_Billet (id_reservation*, date, id_chambre, (id_table),...)
+Chambre(id_chambre*, id_rang, nb_pers)
+Facture(id_facture*, id_client, prix, date, heure, raison)
+Sauvetage(id_bouée*, nb_personne, ...)
+Rang(id_rang*,type_rang)
+Restaurant(id_table*, est_occupé, nb_pers, ...)
+Activités(..)
+Groupes(..)
+(etc)
+
+Views:
+Groupes
+Activités
+Rang
+
+
+-------------------------------------------------------------------------------------------------------
+
+Serveur RP :
+
+Lister les joueurs
+Lister Jobs
+Lister Voitures
+Lister Item
+Lister Whitelist
+Ajouter / Retirer / Modifier un joueur
+Gestion de leur inventaire 
+Gestion d'un banque
+Gestion du travail
+Gestion voiture
+
+Joueur
+- Jobs
+- Item
+- Voiture
