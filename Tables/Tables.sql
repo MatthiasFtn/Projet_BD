@@ -1,3 +1,17 @@
+pragma foreign_keys=true;
+
+.mode columns
+.width 20 20 20 20 20 20
+.headers on
+
+DROP TABLE IF EXISTS Batiments;
+DROP TABLE IF EXISTS Compagnies;
+DROP TABLE IF EXISTS Chambres;
+DROP TABLE IF EXISTS Reservations;
+DROP TABLE IF EXISTS Clients ;
+DROP TABLE IF EXISTS Factures;
+DROP TABLE IF EXISTS Rangs;
+DROP TABLE IF EXISTS Activites;
 
 CREATE TABLE Batiments(
 	id_batiment INTEGER PRIMARY KEY not null,
@@ -17,12 +31,19 @@ CREATE TABLE Batiments(
 CREATE TABLE Compagnies(
 	id_compagnie INTEGER PRIMARY KEY not null,
 	nom_compagnie VARCHAR(30) not null,
+
 	id_batiment INT not null,
 
 	CONSTRAINT fk_compagnie
 	FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment) 
 );
 
+
+CREATE TABLE Rangs(
+	id_rang INTEGER PRIMARY KEY not null,
+	type_rang VARCHAR(20) not null CHECK ( type_rang = 'premium classe' OR type_rang ='premiere classe' OR type_rang = 'seconde classe')
+
+);
 
 
 CREATE TABLE Chambres(
@@ -34,23 +55,6 @@ CREATE TABLE Chambres(
 	CONSTRAINT fk_chambre
 	FOREIGN KEY (id_rang) REFERENCES Rangs(id_rang)
 	
-
-);
-
-
-CREATE TABLE Reservations(
-	id_reservation INTEGER PRIMARY KEY not null,
-	date_debut DATE not null,
-	date_fin DATE not null CHECK (date_fin > date_debut),
-	h_reservation TIME not null,
-
-	id_chambre INT not null, 
-	id_client INT not null,
-
-	CONSTRAINT fk_reservation
-	FOREIGN KEY (id_chambre) REFERENCES Chambres(id_chambre),
-	FOREIGN KEY (id_client ) REFERENCES Clients(id_client )
-
 );
 
 
@@ -61,12 +65,31 @@ CREATE TABLE Clients (
 	age INT not null, 
 	sexe VARCHAR(5) not null CHECK (sexe = 'homme' or sexe = 'femme'),
 
-	id_reservation INT not null
+	id_reservation INT not null,
 
 	CONSTRAINT fk_client
 	FOREIGN KEY (id_reservation) REFERENCES Reservations(id_reservation)
 	
 );
+
+CREATE TABLE Reservations(
+	id_reservation INTEGER PRIMARY KEY not null,
+	date_debut DATE not null,
+	date_fin DATE not null CHECK (date_fin > date_debut),
+	h_reservation TIME not null,
+
+	id_chambre INT not null, 
+	id_client INT not null,
+
+
+	CONSTRAINT fk_reservation
+	FOREIGN KEY (id_chambre) REFERENCES Chambres(id_chambre),
+	FOREIGN KEY (id_client) REFERENCES Clients(id_client)
+
+);
+
+
+
 
 
 CREATE TABLE Factures(
@@ -75,21 +98,10 @@ CREATE TABLE Factures(
 	date_facture DATE not null,
 	h_facture TIME not null,
 
-	(raison) ???
-
 	id_client INT not null,
 
 	CONSTRAINT fk_facture
 	FOREIGN KEY (id_client) REFERENCES Clients(id_client)
-
-);
-
-
-CREATE TABLE Rangs(
-	id_rang INTEGER PRIMARY KEY not null,
-	type_rang VARCHAR(20) not null CHECK ( type_rang = 'premium classe' OR type_rang ='premiere classe' OR type_rang = 'seconde classe'),
-	
-
 
 );
 
@@ -100,13 +112,13 @@ CREATE TABLE Activites(
 	nom_activite VARCHAR(30) not null,
 	jour_activite DATE, 
 	h_debut_activite TIME not null,
-	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite),
+	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite)
 
 
 );
 
 
-
+/*
  ////////// VOIR SI VRAIMENT UTILE //////////
 
 CREATE TABLE Groupes(
@@ -119,5 +131,5 @@ CREATE TABLE Restaurants(
 
 
 );
-
+*/
 
