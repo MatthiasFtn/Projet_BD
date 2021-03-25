@@ -1,5 +1,6 @@
 pragma foreign_keys=true;
 
+.open Projet_Croisiere.db
 .mode columns
 .width 20 20 20 20 20 20
 .headers on
@@ -13,30 +14,42 @@ DROP TABLE IF EXISTS Reservations;
 DROP TABLE IF EXISTS Factures;
 DROP TABLE IF EXISTS Activites;
 
+
+
 CREATE TABLE Batiments(
-	id_batiment INTEGER PRIMARY KEY not null,
+	id_batiment INTEGER not null,
 	nom_batiment VARCHAR(30) not null,
 	superficie INT not null,
 	nb_chambre INT not null,
+	note INT CHECK ( note BETWEEN 0 AND 5),
 
 	id_chambre INT,
+	id_compagnie INTEGER,
+
+	CONSTRAINT pk_batiment primary key (id_batiment, id_compagnie)
+
 
 	CONSTRAINT fk_batiment
 	FOREIGN KEY (id_chambre) REFERENCES Chambres(id_chambre)
-	
+	FOREIGN KEY (id_compagnie) REFERENCES Compagnies(id_compagnie) 
 	
 );
 
 
 CREATE TABLE Compagnies(
-	id_compagnie INTEGER PRIMARY KEY not null,
+	id_compagnie INTEGER not null,
 	nom_compagnie VARCHAR(30) not null,
 
-	id_batiment INT ,
+	id_batiment INTEGER,
+
+
+	CONSTRAINT pk_compagnie primary key (id_compagnie, id_batiment)
 
 	CONSTRAINT fk_compagnie
-	FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment) 
+	FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment)
 );
+
+
 
 
 CREATE TABLE Rangs(
@@ -116,15 +129,29 @@ CREATE TABLE Activites(
 );
 
 
-INSERT INTO Compagnies VALUES (1 , "Un Bateau", null);
-INSERT INTO Batiments VALUES (1, "un bateau", 1000,10000, null);
 
 
-SELECT * FROM Compagnies;
-SELECT * FROM Batiments;
+INSERT INTO Batiments VALUES (1 , "Bat 1 " , 1000, 10000000, 5 ,null, 1);
+INSERT INTO Batiments VALUES (2 , "Bat 2" , 2000, 20818, 1 ,null, 2);
+INSERT INTO Batiments VALUES (3 , "Bat 3" , 2130, 65160, 3.5 ,null, 3);
+INSERT INTO Batiments VALUES (4 , "Bat 4" ,165160, 5655, 2 ,null, 4);
 
-/*
- ////////// VOIR SI VRAIMENT UTILE //////////
+INSERT INTO Compagnies VALUES (1 , "Comp 1 " , 1);
+INSERT INTO Compagnies VALUES (1 , "Comp 1" , 2);
+
+
+INSERT INTO Compagnies VALUES (2 , "Comp 2" , 3);
+INSERT INTO Compagnies VALUES (2 , "Comp 2" , 4);
+
+
+
+
+-- SELECT * FROM Compagnies;
+-- SELECT * FROM Batiments;
+
+
+
+/* ////////// VOIR SI VRAIMENT UTILE //////////
 
 CREATE TABLE Groupes(
 
