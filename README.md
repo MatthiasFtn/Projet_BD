@@ -6,14 +6,13 @@
 * Se rendre dans le fichier **Projet_Croisiere_BD\SQLite\sqlite-tools-win32-x86-3350200**
 * Exectuer sqlite3.exe
 * Entrer les commandes suivante :
-**.open Projet_Croisiere.db**
-**.read ../../Tables/Tables.sql 
+**.open Projet_Croisiere.db**  && **.read ../../Tables/Tables.sql 
 
 
 ## Execution du Projet JAVA
 
-	* Se rendre dans le fichier **Java_JDBC\src**
-	* Exectuer le programme  
+* Se rendre dans le fichier **Java_JDBC\src**
+* Exectuer le programme  
 	
 
 Erreur rencontrée :
