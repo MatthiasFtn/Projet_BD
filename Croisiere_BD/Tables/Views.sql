@@ -11,7 +11,7 @@ DROP VIEW IF EXISTS vWNombreDeReservation;
 
 CREATE VIEW vWBestBatimentsByCompagnies
 as
-SELECT nom_compagnie, nom_batiment, note as Evalutaion
+SELECT nom_compagnie as Compagnie, nom_batiment as Batiment, note as Evalutaion
 FROM Batiments JOIN Compagnies ON Batiments.id_batiment = Compagnies.id_batiment
 ORDER BY note DESC;
 
