@@ -2,7 +2,7 @@ pragma foreign_keys=true;
 
 .open Projet_Croisiere.db
 .mode columns
-.width 20 20 20 20 20 20
+.width 10 10 10 10 10 10
 .headers on
 
 DROP TABLE IF EXISTS Batiments;
@@ -23,8 +23,9 @@ CREATE TABLE Batiments(
 	nb_chambre INT not null,
 	note INT CHECK ( note BETWEEN 0 AND 5),
 
-	id_chambre INT,
+	
 	id_compagnie INTEGER,
+	id_chambre INTEGER,
 
 	CONSTRAINT pk_batiment primary key (id_batiment, id_compagnie)
 
@@ -54,14 +55,15 @@ CREATE TABLE Compagnies(
 
 CREATE TABLE Rangs(
 	id_rang INTEGER PRIMARY KEY not null,
-	type_rang VARCHAR(20) not null CHECK ( type_rang = 'premium classe' OR type_rang ='premiere classe' OR type_rang = 'seconde classe')
+	type_rang VARCHAR(20) not null CHECK (type_rang = 'interieur' OR type_rang ='vue mer' OR type_rang = 'vue balcon' OR type_rang = 'suite'),
+	prix INT not null CHECK (prix > 0)
 
 );
 
 
 CREATE TABLE Chambres(
 	id_chambre INTEGER PRIMARY KEY not null,
-	capacite INT not null,
+	capacite INT not null CHECK (capacite BETWEEN 2 AND 5),
 	
 	id_rang INT,
 
@@ -86,17 +88,20 @@ CREATE TABLE Clients (
 );
 
 CREATE TABLE Reservations(
-	id_reservation INTEGER PRIMARY KEY not null,
+	id_reservation INTEGER not null,
 	date_debut DATE not null,
 	date_fin DATE not null CHECK (date_fin > date_debut),
 	h_reservation TIME not null,
 
-	id_chambre INT, 
-	id_client INT,
+	id_chambre INTEGER, 
+	id_client INTEGER,
 
+
+	CONSTRAINT pk_reservation primary key (id_reservation,id_client)
 
 	CONSTRAINT fk_reservation
 	FOREIGN KEY (id_chambre) REFERENCES Chambres(id_chambre),
+
 	FOREIGN KEY (id_client) REFERENCES Clients(id_client)
 
 );
@@ -131,24 +136,63 @@ CREATE TABLE Activites(
 
 
 
-INSERT INTO Batiments VALUES (1 , "Bat 1 " , 1000, 10000000, 5 ,null, 1);
-INSERT INTO Batiments VALUES (2 , "Bat 2" , 2000, 20818, 1 ,null, 2);
-INSERT INTO Batiments VALUES (3 , "Bat 3" , 2130, 65160, 3.5 ,null, 3);
-INSERT INTO Batiments VALUES (4 , "Bat 4" ,165160, 5655, 2 ,null, 4);
+INSERT INTO Batiments VALUES
+	(1 , "Bat 1 ", 1000, 10000000, 4, 1, null),
+	(2 , "Bat 2" , 2000, 20818, 5 , 4, null),
+	(3 , "Bat 3" , 2130, 65160, 5 , 1, null),
+	(4 , "Bat 4" , 165160, 5655, 2 , 2, null);
 
-INSERT INTO Compagnies VALUES (1 , "Comp 1 " , 1);
-INSERT INTO Compagnies VALUES (1 , "Comp 1" , 2);
+INSERT INTO Compagnies(id_compagnie, nom_compagnie, id_batiment)VALUES
+	(1 , "Comp 1 " , 1),
+	(2 , "Comp 2" , 2),
+	(2 , "Comp 2" , 3),
+	(2 , "Comp 2" , 4);
 
 
-INSERT INTO Compagnies VALUES (2 , "Comp 2" , 3);
-INSERT INTO Compagnies VALUES (2 , "Comp 2" , 4);
+
+INSERT INTO Reservations(id_reservation, date_debut, date_fin, h_reservation, id_chambre, id_client) VALUES
+	(1,"2021-03-12","2021-04-12", "14:25:20", null, null),
+	(2,"2021-02-12","2021-04-12", "14:25:20", null, null),
+	(3,"2021-01-12","2021-04-12", "14:25:20", null, null),
+	(4,"2021-02-12","2021-04-12", "14:25:20", null, null),
+	(5,"2021-03-12","2021-04-12", "14:25:20", null, null),
+	(6,"2021-03-14","2021-05-21", "16:25:20", null, null),
+	(7,"2021-09-12","2021-11-20", "04:25:20", null, null),
+	(8,"2020-12-31","2021-01-30", "15:25:20", null, null),
+	(9,"2021-05-18","2021-08-01", "20:25:20", null, null),
+	(10,"2021-03-12","2021-04-12", "14:25:20", null, null),
+	(11,"2021-02-12","2021-04-12", "14:25:20", null, null),
+	(12,"2021-07-12","2021-09-12", "14:25:20", null, null),
+	(13,"2021-02-12","2021-04-12", "14:25:20", null, null),
+	(14,"2021-03-12","2021-04-12", "14:25:20", null, null),
+	(15,"2021-03-14","2021-05-21", "16:25:20", null, null),
+	(16,"2021-01-12","2021-07-20", "04:25:20", null, null),
+	(17,"2020-12-31","2021-01-30", "15:25:20", null, null),
+	(18,"2021-06-18","2021-08-01", "20:25:20", null, null),
+	(19,"2021-03-12","2021-04-12", "14:25:20", null, null),
+	(20,"2021-02-12","2021-04-12", "14:25:20", null, null),
+	(21,"2021-01-12","2021-04-12", "14:25:20", null, null),
+	(22,"2021-02-12","2021-04-12", "14:25:20", null, null),
+	(23,"2021-03-12","2021-04-12", "14:25:20", null, null),
+	(24,"2021-03-14","2021-05-21", "16:25:20", null, null),
+	(25,"2021-07-12","2021-09-20", "04:25:20", null, null),
+	(26,"2020-12-31","2021-01-30", "15:25:20", null, null),
+	(27,"2021-05-18","2021-08-01", "20:25:20", null, null),
+	(28,"2021-03-12","2021-04-12", "14:25:20", null, null),
+	(29,"2021-02-12","2021-04-12", "14:25:20", null, null),
+	(30,"2021-09-12","2021-10-12", "14:25:20", null, null);
+
 
 
 
 
 -- SELECT * FROM Compagnies;
+
+
 -- SELECT * FROM Batiments;
 
+
+-- SELECT * FROM Reservations;
 
 
 /* ////////// VOIR SI VRAIMENT UTILE //////////
