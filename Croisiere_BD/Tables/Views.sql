@@ -11,9 +11,14 @@ DROP VIEW IF EXISTS vWNombreDeReservation;
 
 CREATE VIEW vWBestBatimentsByCompagnies
 as
-SELECT nom_compagnie as Compagnie, nom_batiment as Batiment, note as Evalutaion
-FROM Batiments JOIN Compagnies ON Batiments.id_batiment = Compagnies.id_batiment
-ORDER BY note DESC;
+WITH Moyenne as (
+    SELECT AVG(note) as Evalutaion, nom_batiment as Batiment, nom_compagnie as Compagnie 
+    FROM Notes JOIN Batiments ON Batiments.id_batiment = Notes.id_batiment
+                JOIN Compagnies ON Batiments.id_batiment = Compagnies.id_batiment
+  
+    GROUP BY nom_compagnie,nom_batiment
+)
+SELECT * FROM Moyenne;
 
 
 SELECT * FROM vWBestBatimentsByCompagnies;

@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS Clients ;
 DROP TABLE IF EXISTS Reservations;
 DROP TABLE IF EXISTS Factures;
 DROP TABLE IF EXISTS Activites;
-
+DROP TABLE IF EXISTS Notes;
 
 
 CREATE TABLE Batiments(
@@ -21,9 +21,7 @@ CREATE TABLE Batiments(
 	nom_batiment VARCHAR(30) not null,
 	superficie INT not null,
 	nb_chambre INT not null,
-	note INT CHECK ( note BETWEEN 0 AND 5),
-
-	
+		
 	id_compagnie INTEGER,
 	id_chambre INTEGER,
 
@@ -43,8 +41,7 @@ CREATE TABLE Compagnies(
 
 	id_batiment INTEGER,
 
-
-	CONSTRAINT pk_compagnie primary key (id_compagnie, id_batiment)
+	CONSTRAINT pk_compagnie primary key (id_compagnie,nom_compagnie, id_batiment)
 
 	CONSTRAINT fk_compagnie
 	FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment)
@@ -141,6 +138,17 @@ CREATE TABLE Activites(
 	CONSTRAINT pk_activite primary key (id_activite)
 );
 
+CREATE TABLE Notes(
+	id_note INTEGER not null,
+	note INT CHECK ( note BETWEEN 0 AND 5),
+	
+	id_batiment INTEGER,
+	
+	CONSTRAINT pk_note primary key (id_note, id_batiment)
+
+	CONSTRAINT fk_note
+	FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment) 
+);
 
 
 
