@@ -27,7 +27,7 @@ CREATE TABLE Batiments(
 	id_compagnie INTEGER,
 	id_chambre INTEGER,
 
-	CONSTRAINT pk_batiment primary key (id_batiment, id_compagnie)
+	CONSTRAINT pk_batiment primary key (id_batiment, id_compagnie, id_chambre)
 
 
 	CONSTRAINT fk_batiment
@@ -54,18 +54,22 @@ CREATE TABLE Compagnies(
 
 
 CREATE TABLE Rangs(
-	id_rang INTEGER PRIMARY KEY not null,
+	id_rang INTEGER not null,
 	type_rang VARCHAR(20) not null CHECK (type_rang = 'interieur' OR type_rang ='vue mer' OR type_rang = 'vue balcon' OR type_rang = 'suite'),
 	prix INT not null CHECK (prix > 0)
+
+	CONSTRAINT pk_rang primary key (id_rang)
 
 );
 
 
 CREATE TABLE Chambres(
-	id_chambre INTEGER PRIMARY KEY not null,
+	id_chambre INTEGER not null,
 	capacite INT not null CHECK (capacite BETWEEN 2 AND 5),
 	
 	id_rang INT,
+
+	CONSTRAINT pk_chambre primary key (id_chambre, id_rang)
 
 	CONSTRAINT fk_chambre
 	FOREIGN KEY (id_rang) REFERENCES Rangs(id_rang)
@@ -74,13 +78,15 @@ CREATE TABLE Chambres(
 
 
 CREATE TABLE Clients (
-	id_client INTEGER PRIMARY KEY not null,
+	id_client INTEGER not null,
 	nom VARCHAR(30) not null,
 	prenom VARCHAR(30) not null, 
 	age INT not null, 
 	sexe VARCHAR(5) not null CHECK (sexe = 'homme' or sexe = 'femme'),
 
 	id_reservation INT,
+
+	CONSTRAINT pk_client primary key (id_client, id_reservation)
 
 	CONSTRAINT fk_client
 	FOREIGN KEY (id_reservation) REFERENCES Reservations(id_reservation)
@@ -109,12 +115,14 @@ CREATE TABLE Reservations(
 
 
 CREATE TABLE Factures(
-	id_facture INTEGER PRIMARY KEY not null,
+	id_facture INTEGER  not null,
 	prix INT not null CHECK (prix > 0),
 	date_facture DATE not null,
 	h_facture TIME not null,
 
 	id_client INT,
+
+	CONSTRAINT pk_facture primary key (id_reservation, id_client)
 
 	CONSTRAINT fk_facture
 	FOREIGN KEY (id_client) REFERENCES Clients(id_client)
@@ -124,13 +132,13 @@ CREATE TABLE Factures(
 
 
 CREATE TABLE Activites(
-	id_activite INTEGER PRIMARY KEY not null,
+	id_activite INTEGER not null,
 	nom_activite VARCHAR(30) not null,
 	jour_activite DATE, 
 	h_debut_activite TIME not null,
 	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite)
 
-
+	CONSTRAINT pk_activite primary key (id_activite)
 );
 
 
