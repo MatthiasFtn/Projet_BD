@@ -56,7 +56,7 @@ CREATE TABLE Compagnies(
 CREATE TABLE Rangs(
 	id_rang INTEGER not null,
 	type_rang VARCHAR(20) not null CHECK (type_rang = 'interieur' OR type_rang ='vue mer' OR type_rang = 'vue balcon' OR type_rang = 'suite'),
-	prix INT not null CHECK (prix > 0)
+	prix INT not null CHECK (prix > 0),
 
 	CONSTRAINT pk_rang primary key (id_rang)
 
@@ -122,7 +122,7 @@ CREATE TABLE Factures(
 
 	id_client INT,
 
-	CONSTRAINT pk_facture primary key (id_reservation, id_client)
+	CONSTRAINT pk_facture primary key (id_facture, id_client)
 
 	CONSTRAINT fk_facture
 	FOREIGN KEY (id_client) REFERENCES Clients(id_client)
@@ -136,7 +136,7 @@ CREATE TABLE Activites(
 	nom_activite VARCHAR(30) not null,
 	jour_activite DATE, 
 	h_debut_activite TIME not null,
-	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite)
+	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite),
 
 	CONSTRAINT pk_activite primary key (id_activite)
 );
@@ -144,11 +144,6 @@ CREATE TABLE Activites(
 
 
 
-INSERT INTO Batiments VALUES
-	(1 , "Bat 1 ", 1000, 10000000, 4, 1, null),
-	(2 , "Bat 2" , 2000, 20818, 5 , 4, null),
-	(3 , "Bat 3" , 2130, 65160, 5 , 1, null),
-	(4 , "Bat 4" , 165160, 5655, 2 , 2, null);
 
 INSERT INTO Compagnies(id_compagnie, nom_compagnie, id_batiment)VALUES
 	(1 , "Comp 1 " , 1),
