@@ -97,7 +97,7 @@ CREATE TABLE Reservations(
 	id_client INTEGER,
 
 
-	CONSTRAINT pk_reservation primary key (id_reservation,id_client)
+	CONSTRAINT pk_reservation primary key (id_reservation,id_chambre, id_client)
 
 	CONSTRAINT fk_reservation
 	FOREIGN KEY (id_chambre) REFERENCES Chambres(id_chambre),
