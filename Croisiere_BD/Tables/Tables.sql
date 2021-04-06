@@ -145,13 +145,6 @@ CREATE TABLE Activites(
 
 
 
-INSERT INTO Compagnies(id_compagnie, nom_compagnie, id_batiment)VALUES
-	(1 , "Comp 1 " , 1),
-	(2 , "Comp 2" , 2),
-	(2 , "Comp 2" , 3),
-	(2 , "Comp 2" , 4);
-
-
 
 
 
