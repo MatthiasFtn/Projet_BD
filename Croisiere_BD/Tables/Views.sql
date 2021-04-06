@@ -15,8 +15,12 @@ WITH Moyenne as (
     SELECT AVG(note) as Evalutaion, nom_batiment as Batiment, nom_compagnie as Compagnie 
     FROM Notes JOIN Batiments ON Batiments.id_batiment = Notes.id_batiment
                 JOIN Compagnies ON Batiments.id_batiment = Compagnies.id_batiment
-  
+    
     GROUP BY nom_compagnie,nom_batiment
+    
+    HAVING AVG(note)
+    ORDER BY note DESC
+
 )
 SELECT * FROM Moyenne;
 
