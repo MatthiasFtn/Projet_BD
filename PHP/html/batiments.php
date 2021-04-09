@@ -175,24 +175,24 @@
         <h1>Batiments</h1>
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Nom Batiments</th>
                 <th>Superficie</th>
                 <th>Nombre de chambre</th>
-                <th>ID Compagnie</th>
-                <th>ID Chambre</th>
+                <!-- <th>ID Compagnie</th> -->
+                <!-- <th>ID Chambre</th> -->
             </tr>
 
             <?php
                 while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
             ?>
                     <tr>
-                        <td><?php echo $rows['id_batiment'] ?></td>
+                        <!-- <td><?php echo $rows['id_batiment'] ?></td> -->
                         <td><?php echo $rows['nom_batiment'] ?></td>
                         <td><?php echo $rows['superficie'] ?></td>
                         <td><?php echo $rows['nb_chambre'] ?></td>
-                        <td><?php echo $rows['id_compagnie'] ?></td>
-                        <td><?php echo $rows['id_chambre'] ?></td>
+                        <!-- <td><?php echo $rows['id_compagnie'] ?></td> -->
+                        <!-- <td><?php echo $rows['id_chambre'] ?></td> -->
 
                     </tr>
             <?php
