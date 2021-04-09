@@ -1,6 +1,6 @@
 # Projet_BD
 
-## Execution du Projet SQL
+## Execution du Projet SQL (tables déjà initialiser donc passer à la partie HTML/PHP)
 
 * Pour les Tables : 
 * Se rendre dans le fichier **Croisiere_BD\SQLite\sqlite-tools-win32-x86-3350200**
@@ -8,9 +8,11 @@
 * Entrer les commandes suivante :
 "**.open Projet_Croisiere.db**"  &&  "**.read ../../Tables/Tables.sql**"
 
+
+## Execution du Projet SQL (HTML/PHP)
 * Lancer la tables des batiments:
 	* Se rendre dans le folder "PHP", ouvrir un terminal dans à partir de ce fodler, et entrer la commande "php -S localhost:1234" pour créer un serveur local.
-        
+* Ouvrir le main.html tout simplement :)
 
 
 ## Execution du Projet JAVA
