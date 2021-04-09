@@ -169,29 +169,32 @@
     </svg>
 </div>
 
-<div  id="tables" >
-        <h1>Nombre de réservation par période</h1>
-        <table algin="center" border="1px" style="width:300px; line-heigth:30%">
-            <tr>
-                <th>Réservation Hiver</th>
-                <th>Réservation Printemps</th>
-                <th>Réservation Ete</th>
-                <th>Réservation Automne</th>
-            </tr>
+    <h1>Nombre de réservation par période</h1>
+       
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+                <tr>
+                    <th>Réservation Hiver</th>
+                    <th>Réservation Printemps</th>
+                    <th>Réservation Ete</th>
+                    <th>Réservation Automne</th>
+                </tr>
 
-            <?php
-                while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
-            ?>
-                    <tr>
-                        <td><?php echo $rows['Hiver'] ?></td>
-                        <td><?php echo $rows['Printemps'] ?></td>
-                        <td><?php echo $rows['Ete'] ?></td>
-                        <td><?php echo $rows['Automne'] ?></td>
+                <?php
+                    while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
+                ?>
+                        <tr>
+                            <td><?php echo $rows['Hiver'] ?></td>
+                            <td><?php echo $rows['Printemps'] ?></td>
+                            <td><?php echo $rows['Ete'] ?></td>
+                            <td><?php echo $rows['Automne'] ?></td>
 
-                    </tr>
-            <?php
-                }
-            ?>
+                        </tr>
+                <?php
+                    }
+                ?>
+            </thead>
             
         </table>
     </div>

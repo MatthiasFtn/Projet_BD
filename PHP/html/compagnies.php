@@ -170,10 +170,9 @@
     </svg>
 </div>
 
-<div  id="tables" >
     <h1>Compagnies</h1>
-        <table algin="center" border="1px" style="width:300px; line-heigth:30%">
-            <tr>
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
                 <th>ID</th>
                 <th>Nom Compagnie</th>
                 <th>ID Batiment</th>
@@ -192,6 +191,7 @@
                 }
             ?>
             
+            </thead>
         </table>
 </div>
 </body>

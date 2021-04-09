@@ -171,8 +171,8 @@
 
 <div  id="tables" >
         <h1>Batiments</h1>
-        <table algin="center" border="1px" style="width:300px; line-heigth:30%">
-            <tr>
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
                 <th>ID</th>
                 <th>Nom Batiments</th>
                 <th>Superficie</th>
@@ -196,7 +196,7 @@
             <?php
                 }
             ?>
-            
+            </thead>
         </table>
     </div>
 

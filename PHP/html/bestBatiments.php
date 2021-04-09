@@ -171,7 +171,8 @@
 
 <div  id="tables" >
         <h1>Les mieux notés</h1>
-        <table algin="center" border="1px" style="width:300px; line-heigth:30%">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
             <tr>
                 <th>Moyenne</th>
                 <th>Nom Batiments</th>
@@ -190,7 +191,7 @@
             <?php
                 }
             ?>
-            
+            </thead>
         </table>
     </div>
 
