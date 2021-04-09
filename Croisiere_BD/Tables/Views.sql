@@ -18,8 +18,8 @@ WITH Moyenne as (
     
     GROUP BY nom_compagnie,nom_batiment
     
-    HAVING MAX(note)
-    ORDER BY note DESC
+    HAVING note
+    ORDER BY AVG(note) DESC
 
 )
 SELECT * FROM Moyenne;
