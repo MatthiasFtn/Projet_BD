@@ -18,7 +18,7 @@ WITH Moyenne as (
     
     GROUP BY nom_compagnie,nom_batiment
     
-    HAVING AVG(note)
+    HAVING MAX(note)
     ORDER BY note DESC
 
 )

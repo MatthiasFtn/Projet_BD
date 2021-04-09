@@ -8,6 +8,10 @@
 * Entrer les commandes suivante :
 "**.open Projet_Croisiere.db**"  &&  "**.read ../../Tables/Tables.sql**"
 
+* Lancer la tables des batiments:
+        * Se rendre dans le folder "PHP", ouvrir un terminal dans à partir de ce fodler, et entrer la commande "php -S localhost:1234" pour créer un serveur local.
+        
+
 
 ## Execution du Projet JAVA
 
