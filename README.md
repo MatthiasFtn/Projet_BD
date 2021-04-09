@@ -12,7 +12,7 @@
 ## Execution du Projet SQL (HTML/PHP)
 * Lancer la tables des batiments:
 	* Se rendre dans le folder "PHP", ouvrir un terminal dans à partir de ce fodler, et entrer la commande "php -S localhost:1234" pour créer un serveur local.
-* Ouvrir le main.html tout simplement :)
+* Ouvrir le **main.html** tout simplement :)
 
 
 ## Execution du Projet JAVA
