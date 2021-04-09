@@ -3,7 +3,7 @@
     $pdo = new PDO('sqlite:Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM Compagnies");
+    $statement = $pdo->query("SELECT * FROM vWBestBatimentsByCompagnies");
 
 ?>
 
@@ -19,9 +19,8 @@
 </head>
 
 <body>
-
-        
-
+    
+    
 
 <div style="width:device-width; margin-top: -20%;">
     <svg version="1.1" class="ship" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -171,21 +170,21 @@
 </div>
 
 <div  id="tables" >
-    <h1>Compagnies</h1>
+        <h1>Les mieux notés</h1>
         <table algin="center" border="1px" style="width:300px; line-heigth:30%">
             <tr>
-                <th>ID</th>
-                <th>Nom Compagnie</th>
-                <th>ID Batiment</th>
+                <th>Moyenne</th>
+                <th>Nom Batiments</th>
+                <th>Nom Compagnies</th>
             </tr>
 
             <?php
                 while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
             ?>
                     <tr>
-                        <td><?php echo $rows['id_compagnie'] ?></td>
-                        <td><?php echo $rows['nom_compagnie'] ?></td>
-                        <td><?php echo $rows['id_batiment'] ?></td>
+                        <td><?php echo $rows['Evalutaion'] ?></td>
+                        <td><?php echo $rows['Batiment'] ?></td>
+                        <td><?php echo $rows['Compagnie'] ?></td>
 
                     </tr>
             <?php
@@ -193,7 +192,8 @@
             ?>
             
         </table>
-</div>
+    </div>
+
 </body>
 
 </html>
