@@ -6,6 +6,7 @@ pragma foreign_keys=true;
 
 DROP VIEW IF EXISTS vWBestBatimentsByCompagnies;
 DROP VIEW IF EXISTS vWNombreDeReservation;
+DROP VIEW IF EXISTS vWFactureClient;
 
 /*Batiments mieux côtés*/
 
@@ -69,3 +70,15 @@ SELECT * FROM Hiver, Printemps, Ete, Automne;
 
 
 SELECT * FROM vWNombreDeReservation;
+
+
+/* Facture du client selectionné */
+
+
+CREATE VIEW vWFactureClient
+as
+SELECT nom as Client, prix as Prix, date_facture as Date_Facturation, h_facture as Heure
+FROM Factures NATURAL JOIN Clients;
+
+SELECT * FROM vWFactureClient;
+

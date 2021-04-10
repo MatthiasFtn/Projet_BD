@@ -6,5 +6,8 @@
 .import ../../CSV/Compagnies.csv Compagnies
 .import ../../CSV/Reservations.csv Reservations
 .import ../../CSV/Notes.csv Notes
+.import ../../CSV/Factures.csv Factures
+.import ../../CSV/Clients.csv Clients
+.import ../../CSV/Rangs.csv Rangs
 
 .read ../../Tables/Views.sql
