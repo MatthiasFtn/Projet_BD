@@ -1,10 +1,12 @@
 <?php
     // Define PDO - Tell aboit database file
-    $pdo = new PDO('sqlite:Projet_Croisiere.db');
+    $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM vWNombreDeReservation");
+    $statement = $pdo->query("SELECT * FROM Batiments");
 
+    
+    $pdo->lastInsertID();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/tables.css">
+    <link rel="stylesheet" href="../../css/tables.css">
     <title>¨Projet Base de Données</title>
 
     
@@ -171,33 +173,34 @@
     </svg>
 </div>
 
-    <h1>Nombre de réservation par période</h1>
-       
-    <div class="tbl-header">
+<div  id="tables" >
+        <h1>Batiments</h1>
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
-                <tr>
-                    <th>Réservation Hiver</th>
-                    <th>Réservation Printemps</th>
-                    <th>Réservation Ete</th>
-                    <th>Réservation Automne</th>
-                </tr>
+                <!-- <th>ID</th> -->
+                <th>Nom Batiments</th>
+                <th>Superficie</th>
+                <th>Nombre de chambre</th>
+                <!-- <th>ID Compagnie</th> -->
+                <!-- <th>ID Chambre</th> -->
+            </tr>
 
-                <?php
-                    while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
-                ?>
-                        <tr>
-                            <td><?php echo $rows['Hiver'] ?></td>
-                            <td><?php echo $rows['Printemps'] ?></td>
-                            <td><?php echo $rows['Ete'] ?></td>
-                            <td><?php echo $rows['Automne'] ?></td>
+            <?php
+                while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
+            ?>
+                    <tr>
+                        <!-- <td><?php echo $rows['id_batiment'] ?></td> -->
+                        <td><?php echo $rows['nom_batiment'] ?></td>
+                        <td><?php echo $rows['superficie'] ?></td>
+                        <td><?php echo $rows['nb_chambre'] ?></td>
+                        <!-- <td><?php echo $rows['id_compagnie'] ?></td> -->
+                        <!-- <td><?php echo $rows['id_chambre'] ?></td> -->
 
-                        </tr>
-                <?php
-                    }
-                ?>
+                    </tr>
+            <?php
+                }
+            ?>
             </thead>
-            
         </table>
     </div>
 

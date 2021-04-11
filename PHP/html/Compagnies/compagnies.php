@@ -1,9 +1,9 @@
 <?php
     // Define PDO - Tell aboit database file
-    $pdo = new PDO('sqlite:Projet_Croisiere.db');
+    $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM vWBestBatimentsByCompagnies");
+    $statement = $pdo->query("SELECT * FROM Compagnies");
 
 ?>
 
@@ -13,16 +13,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/tables.css">
+    <link rel="stylesheet" href="../../css/tables.css">
     <title>¨Projet Base de Données</title>
-
     
 
 </head>
 
 <body>
-    
-    
+
+        
+
 
 <div style="width:device-width; margin-top: -20%;">
     <svg version="1.1" class="ship" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -171,32 +171,30 @@
     </svg>
 </div>
 
-<div  id="tables" >
-        <h1>Les mieux notés</h1>
+    <h1>Compagnies</h1>
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
-            <tr>
-                <th>Moyenne</th>
-                <th>Nom Batiments</th>
-                <th>Nom Compagnies</th>
+                <th>ID</th>
+                <th>Nom Compagnie</th>
+                <th>ID Batiment</th>
             </tr>
 
             <?php
                 while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
             ?>
                     <tr>
-                        <td><?php echo $rows['Evalutaion'] ?></td>
-                        <td><?php echo $rows['Batiment'] ?></td>
-                        <td><?php echo $rows['Compagnie'] ?></td>
+                        <td><?php echo $rows['id_compagnie'] ?></td>
+                        <td><?php echo $rows['nom_compagnie'] ?></td>
+                        <td><?php echo $rows['id_batiment'] ?></td>
 
                     </tr>
             <?php
                 }
             ?>
+            
             </thead>
         </table>
-    </div>
-
+</div>
 </body>
 
 </html>

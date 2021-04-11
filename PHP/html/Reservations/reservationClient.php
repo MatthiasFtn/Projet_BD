@@ -1,6 +1,6 @@
 <?php
     // Define PDO - Tell aboit database file
-    $pdo = new PDO('sqlite:Projet_Croisiere.db');
+    $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
     $statement = $pdo->query("SELECT * FROM Clients");
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/tables.css">
+    <link rel="stylesheet" href="../../css/tables.css">
     <title>¨Projet Base de Données</title>
 
     

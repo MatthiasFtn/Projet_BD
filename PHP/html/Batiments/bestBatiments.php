@@ -1,9 +1,9 @@
 <?php
     // Define PDO - Tell aboit database file
-    $pdo = new PDO('sqlite:Projet_Croisiere.db');
+    $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM Batiments");
+    $statement = $pdo->query("SELECT * FROM vWBestBatimentsByCompagnies");
 
 ?>
 
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/tables.css">
+    <link rel="stylesheet" href="../../css/tables.css">
     <title>¨Projet Base de Données</title>
 
     
@@ -172,27 +172,22 @@
 </div>
 
 <div  id="tables" >
-        <h1>Batiments</h1>
+        <h1>Les mieux notés</h1>
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
-                <!-- <th>ID</th> -->
+            <tr>
+                <th>Moyenne</th>
                 <th>Nom Batiments</th>
-                <th>Superficie</th>
-                <th>Nombre de chambre</th>
-                <!-- <th>ID Compagnie</th> -->
-                <!-- <th>ID Chambre</th> -->
+                <th>Nom Compagnies</th>
             </tr>
 
             <?php
                 while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
             ?>
                     <tr>
-                        <!-- <td><?php echo $rows['id_batiment'] ?></td> -->
-                        <td><?php echo $rows['nom_batiment'] ?></td>
-                        <td><?php echo $rows['superficie'] ?></td>
-                        <td><?php echo $rows['nb_chambre'] ?></td>
-                        <!-- <td><?php echo $rows['id_compagnie'] ?></td> -->
-                        <!-- <td><?php echo $rows['id_chambre'] ?></td> -->
+                        <td><?php echo $rows['Evalutaion'] ?></td>
+                        <td><?php echo $rows['Batiment'] ?></td>
+                        <td><?php echo $rows['Compagnie'] ?></td>
 
                     </tr>
             <?php

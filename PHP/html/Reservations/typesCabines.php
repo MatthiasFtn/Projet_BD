@@ -1,9 +1,9 @@
 <?php
     // Define PDO - Tell aboit database file
-    $pdo = new PDO('sqlite:Projet_Croisiere.db');
+    $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM vWFactureClient");
+    $statement = $pdo->query("SELECT * FROM Rangs");
 
 ?>
 
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/tables.css">
+    <link rel="stylesheet" href="../../css/tables.css">
     <title>¨Projet Base de Données</title>
 
     
@@ -177,20 +177,16 @@
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
                 <tr>
-                    <th>Clients</th>
+                    <th>Type de Cabines</th>
                     <th>Prix (€)</th>
-                    <th>Date de facturation</th>
-                    <th>Heure</th>
                 </tr>
 
                 <?php
                     while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
                 ?>
                         <tr>
-                            <td><?php echo $rows['Client'] ?></td>
-                            <td><?php echo $rows['Prix'] ?></td>
-                            <td><?php echo $rows['Date_Facturation'] ?></td>
-                            <td><?php echo $rows['Heure'] ?></td>
+                            <td><?php echo $rows['type_rang'] ?></td>
+                            <td><?php echo $rows['prix'] ?></td>
 
                         </tr>
                 <?php
