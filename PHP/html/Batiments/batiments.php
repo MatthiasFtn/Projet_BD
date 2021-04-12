@@ -176,7 +176,6 @@
                 <th><a href="http://localhost:1234/html/main.html">Retour</a>
                 <th>Nom Batiments</th>
                 <th>Superficie</th>
-                <th>Nombre de chambre</th>
             </tr>
 
             <?php
