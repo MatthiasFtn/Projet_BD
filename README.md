@@ -12,29 +12,29 @@
 	* https://www.youtube.com/watch?v=3mP3wiz6vN4
 	
 * Une fois installer, ajouter PHP aux variables d'environement de votre systeme:
-![image](files/screens/screen3.png)
+![image](screens/screen3.png)
 
 * Sous Windows rechercher *variables d'environnement*. Sélectionner *Modifier les variables d'environnement*.
-* ![image](files/screens/screen4.png)
+* ![image](screens/screen4.png)
 
 * Sélectionner le *Path* puis *modifier*.
-* ![image](files/screens/screen5.png)
+* ![image](screens/screen5.png)
 
 * Sélectionner *Parcourir*.
-* ![image](files/screens/screen6.png)
+* ![image](screens/screen6.png)
 
 * Sélectionner l'emplacement du fichier d'installation de PHP que vous venez d'installer.
-* ![image](files/screens/screen7.png)
+* ![image](screens/screen7.png)
 
 
 * Puis dans le répertoire dans lequel a été PHP (*C:\xampp\php* si vous l'avez installer sur votre disque local), chercher le fichier le fichier **php.ini-development**
 * Faire une copie de se fichier et renommer le en **php.ini**
 
-* Ouvrer le fichier php.ini avec un editeur de text et scroller dans le fichier jusqe appercevoir les extension comme sur l'image si dessous.
-![image](files/screens/screen1.png)
+* Ouvrer le fichier php.ini avec un editeur de text et scroller dans le fichier jusque appercevoir les extensions comme sur l'image si dessous.
+![image](screens/screen1.png)
 
 * Décommenter les lignes comme sur l'image si dessous (en retirant le symbole *;*).
-![image](files/screens/screen2.png)
+![image](screens/screen2.png)
 
 
 
