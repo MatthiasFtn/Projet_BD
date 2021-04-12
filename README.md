@@ -1,25 +1,52 @@
 # Projet_BD
 
-## Execution du Projet SQL (tables déjà initialiser donc passer à la partie HTML/PHP)
-
-* Pour les Tables : 
+## Execution du Projet avec SQLite
+ 
 * Se rendre dans le fichier **Croisiere_BD\SQLite\sqlite-tools-win32-x86-3350200**
 * Exectuer sqlite3.exe
 * Entrer les commandes suivante :
-"**.open Projet_Croisiere.db**"  &&  "**.read ../../Tables/Tables.sql**"
+	**.open Projet_Croisiere.db**  &&  **.read ../../Tables/Tables.sql**
+
+## Execution du Projet SQL avec l'interface (HTML/PHP)
+* PHP doit être au préalable installer et configurer correctement. Pour se faire suivez les instructions dans cette vidéo:
+	* https://www.youtube.com/watch?v=3mP3wiz6vN4
+	
+* Une fois installer, ajouter PHP aux variables d'environement de votre systeme:
+![image](files/screens/screen3.png)
+
+* Sous Windows rechercher *variables d'environnement*. Sélectionner *Modifier les variables d'environnement*.
+* ![image](files/screens/screen4.png)
+
+* Sélectionner le *Path* puis *modifier*.
+* ![image](files/screens/screen5.png)
+
+* Sélectionner *Parcourir*.
+* ![image](files/screens/screen6.png)
+
+* Sélectionner l'emplacement du fichier d'installation de PHP que vous venez d'installer.
+* ![image](files/screens/screen7.png)
 
 
-## Execution du Projet SQL (HTML/PHP)
-* Lancer la tables des batiments:
-	* Se rendre dans le folder "PHP", ouvrir un terminal dans à partir de ce fodler, et entrer la commande **php -S localhost:1234** pour créer un serveur local.
+* Puis dans le répertoire dans lequel a été PHP (*C:\xampp\php* si vous l'avez installer sur votre disque local), chercher le fichier le fichier **php.ini-development**
+* Faire une copie de se fichier et renommer le en **php.ini**
+
+* Ouvrer le fichier php.ini avec un editeur de text et scroller dans le fichier jusqe appercevoir les extension comme sur l'image si dessous.
+![image](files/screens/screen1.png)
+
+* Décommenter les lignes comme sur l'image si dessous (en retirant le symbole *;*).
+![image](files/screens/screen2.png)
+
+
+
+* Ouvrir le projet avec Visual Studio Code (pour plus de simplicité) et ouvrer le dossier **PHP** dans un terminal intégré.
+Ou vous pouvez tout simplement ouvrir un terminal de commande et vous rendre vers le fichier *PHP* se trouvant dans le projet.
+
+* Executer la commande **php -S localhost:1234** pour exécuter un serveur local.
+
 * Ouvrir le **main.html** tout simplement :)
 
 
-## Execution du Projet JAVA
-
-* Se rendre dans le fichier **Java_JDBC\src**
-* Exectuer le programme  
-	
+## Problème JAVA JDBC
 
 Erreur rencontrée :
 	**java.sql.SQLException: No suitable driver found for jdbc:sqlite:C:\Users\matth\OneDrive\Documents\FAC\2021\BD\PROJET\Projet_Croisiere\SQLite\sqlite-tools-win32-x86-3350200\Projet_Croisiere.db
