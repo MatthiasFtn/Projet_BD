@@ -4,6 +4,8 @@
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/tables.css"/>
+        <title>Projet Base de Données</title>
+
 	</head>
 <body>
 
@@ -154,80 +156,117 @@
     </svg>
 </div>
 
-	<div class="col-md-3"></div>
-	<div class="col-md-6 well">
-		<h3 class="text-primary">Liste des réservations</h3>
-		<hr style="border-top:1px dotted #ccc;"/>
-		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#form_modal"><span class="glyphicon glyphicon-plus"></span> Add Member</button>
-		<br /><br />
-		<table class="table table-bordered">
-			<thead class="alert-info">
-				<tr>
+        <table cellpadding="0" cellspacing="0" border="0">
+        
+            <thead>
+            
+                <tr>
+                    <th><a href="http://localhost:1234/html/main.html">Retour</a><button type="button" class="btn btn-success" data-toggle="modal" data-target="#form_modal"><span class="glyphicon glyphicon-plus"></span> Réserver</button>
+		<br/><br/></th>
 					<th>Nom</th>
 					<th>Prenom</th>
+                    <th>Cabines</th>
+                    <th>Prix</th>
 					<th>Date de départ</th>
 					<th>Date de retour</th>
-					<th>Heure de réservation</th>
 				</tr>
 			</thead>
-			<tbody style="background-color:#fff;">
 				<?php
 					require 'conn.php';
 
-					$query = $conn->prepare("SELECT nom, prenom, date_debut, date_fin, h_reservation FROM 'Reservations' JOIN Clients ON Reservations.id_reservation = Clients.id_reservation ORDER BY 'nom' ASC");
+					$query = $conn->prepare("SELECT nom, prenom, type_rang, prix, date_debut, date_fin FROM Reservations JOIN Clients on Reservations.id_client = Clients.id_client JOIN Rangs ON Clients.id_rang = Rangs.id_rang ORDER BY 'nom' ASC");
 					$query->execute();
+
 					while($fetch = $query->fetch()){
 				?>
 				<tr>
+                    <td></td>
 					<td><?php echo $fetch['nom']?></td>
 					<td><?php echo $fetch['prenom']?></td>
+                    <td><?php echo $fetch['type_rang']?></td>
+					<td><?php echo $fetch['prix']?></td>
 					<td><?php echo $fetch['date_debut']?></td>
 					<td><?php echo $fetch['date_fin']?></td>
-					<td><?php echo $fetch['h_reservation']?></td>
 				</tr>
 				<?php
 					}
 					
 					$conn = null;
 				?>
-			</tbody>
 		</table>
 	</div>
-	<div class="modal fade" id="form_modal" aria-hidden="true">
+
+    <div class="modal fade" id="form_modal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form method="POST" action="save_member.php">
 					<div class="modal-header">
 						<div class="modal-title">
-							<h3>Add Member</h3>
+							<h3>Ajouter Client</h3>
 						</div>
 					</div>
 					<div class="modal-body">
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
-							<div class="form-group">
-								<label>date_debut</label>
+
+                            <div class="form-group">
+								<label>Nom</label>
+								<input type="text" name="nom" class="form-control" required="required"/>
+							</div>
+
+                            <div class="form-group">
+								<label>Prenom</label>
+								<input type="text" name="prenom" class="form-control" required="required"/>
+							</div>
+
+                            <div class="form-group">
+								<label>Age</label>
+								<input type="text" name="age" class="form-control" required="required"/>
+							</div>
+
+                            <div class="form-group">
+                                <label>Sexe</label>
+                                <select type="text" name="sexe" class="form-control" required="required" >
+                                    <option value="" disabled selected>Choisir</option>
+                                    <option value="homme">Homme</option>
+                                    <option value="femme">Femme</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                            <label>Cabines</label>
+                                <select type="text" name="id_rang" class="form-control" required="required">
+                                    <option value="" disabled selected>Choisir</option>
+                                    <option value="1">Interieur</option>
+                                    <option value="2">Vue mer</option>
+                                    <option value="3">Vue balcon</option>
+                                    <option value="4">Suite</option> 
+                                </select>
+                                
+                            </div>
+
+                            <div class="form-group">
+								<label>Date Départ</label>
 								<input type="text" name="date_debut" class="form-control" required="required"/>
 							</div>
 							<div class="form-group">
-								<label>date_fin</label>
+								<label>Date Retour</label>
 								<input type="text" name="date_fin" class="form-control" required="required"/>
 							</div>
-							<div class="form-group">
-								<label>h_reservation</label>
-								<input type="text" name="h_reservation" class="form-control" required="required"/>
-							</div>
 						</div>	
+
+
 					</div>
 					<div style="clear:both;"></div>
 					<div class="modal-footer">
-						<button class="btn btn-primary" name="save"><span class="glyphicon glyphicon-save"></span> Save</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
+						<button class="btn btn-primary" name="save_client"><span class="glyphicon glyphicon-save"></span> Enregistrer</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../js/bootstrap.js"></script>
 </body>

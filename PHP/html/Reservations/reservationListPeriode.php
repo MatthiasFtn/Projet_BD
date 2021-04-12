@@ -3,7 +3,7 @@
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM Rangs");
+    $statement = $pdo->query("SELECT * FROM vWNombreDeReservation");
 
 ?>
 
@@ -177,16 +177,20 @@
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
                 <tr>
-                    <th>Type de Cabines</th>
-                    <th>Prix (€)</th>
+                    <th>Réservation Hiver</th>
+                    <th>Réservation Printemps</th>
+                    <th>Réservation Ete</th>
+                    <th>Réservation Automne</th>
                 </tr>
 
                 <?php
                     while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
                 ?>
                         <tr>
-                            <td><?php echo $rows['type_rang'] ?></td>
-                            <td><?php echo $rows['prix'] ?></td>
+                            <td><?php echo $rows['Hiver'] ?></td>
+                            <td><?php echo $rows['Printemps'] ?></td>
+                            <td><?php echo $rows['Ete'] ?></td>
+                            <td><?php echo $rows['Automne'] ?></td>
 
                         </tr>
                 <?php
@@ -196,6 +200,7 @@
             
         </table>
     </div>
+
 
 </body>
 

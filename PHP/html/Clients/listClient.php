@@ -3,7 +3,7 @@
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM Rangs");
+    $statement = $pdo->query("SELECT * FROM Clients");
 
 ?>
 
@@ -177,16 +177,23 @@
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
                 <tr>
-                    <th>Type de Cabines</th>
-                    <th>Prix (€)</th>
+                    <th><a href="http://localhost:1234/html/main.html">Retour</a>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Age</th>
+                    <th>Sexe</th>
                 </tr>
 
                 <?php
                     while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
                 ?>
                         <tr>
-                            <td><?php echo $rows['type_rang'] ?></td>
-                            <td><?php echo $rows['prix'] ?></td>
+                            <td></td>
+                            <td><?php echo $rows['nom'] ?></td>
+                            <td><?php echo $rows['prenom'] ?></td>
+                            <td><?php echo $rows['age'] ?></td>
+                            <td><?php echo $rows['sexe'] ?></td>
+                            
 
                         </tr>
                 <?php

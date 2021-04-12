@@ -2,26 +2,81 @@
 
 	require_once 'conn.php';
 	
-	
-	if(ISSET($_POST['save'])){
-		$date_debut = $_POST['date_debut'];
-		$date_fin = $_POST['date_fin'];
-		$h_reservation = $_POST['h_reservation'];
+	if(ISSET($_POST['save_client'])){
 		
-		$query = "INSERT INTO Reservations (id_reservation,date_debut, date_fin, h_reservation) VALUES (:id_reservation, :date_debut, :date_fin, :h_reservation)";
+		// rangs
+
+		$id_rang = $_POST['id_rang'];
+
+		$query3 = "UPDATE Clients SET id_rang = $id_rang WHERE id_rang = null";
+
+		$stmt = $conn->prepare($query3);
+		$stmt->execute();
+
+		// clients
+
+		$nom = $_POST['nom'];
+		$prenom = $_POST['prenom'];
+		$age = $_POST['age'];
+		$sexe = $_POST['sexe'];
+	
+		$query = "INSERT INTO Clients(nom, prenom, age, sexe, id_rang) VALUES (:nom, :prenom, :age, :sexe, :id_rang)";
 		
 		$stmt = $conn->prepare($query);
+		
+
+
+		$stmt->bindParam(':nom', $nom);
+		$stmt->bindParam(':prenom', $prenom);
+		$stmt->bindParam(':age', $age);
+		$stmt->bindParam(':sexe', $sexe);
+		$stmt->bindParam(':id_rang', $id_rang);
 	
-		$stmt->bindParam(':id_reservation', $conn->lastInsertID());
-		$stmt->bindParam(':date_debut', $date_debut);
-		$stmt->bindParam(':date_fin', $date_fin);
-		$stmt->bindParam(':h_reservation', $h_reservation);
 	
 		$stmt->execute();
+
+		$id = $conn->lastInsertId();
+
+
+
+		// reservations
+
+		$date_debut = $_POST['date_debut'];
+		$date_fin = $_POST['date_fin'];
 		
-		print_r($conn->lastInsertID());
+	
+		$time = date('H:i:s');
+		
+		$query2 = "INSERT INTO Reservations (date_debut, date_fin, id_client, h_reservation) VALUES (:date_debut, :date_fin, :id_client, :h_reservation)";
+	
+		$stmt = $conn->prepare($query2);
+	
+		$stmt->bindParam(':date_debut', $date_debut);
+		$stmt->bindParam(':date_fin', $date_fin);
+		$stmt->bindParam(':id_client', $id);
+		$stmt->bindParam(':h_reservation', $time);
+
+		$stmt->execute();
+
+
+
+		$query4 = "INSERT INTO Factures(date_facture, h_facture, id_client) VALUES (:date_facture, :h_facture, :id_client)";
+		
+		$stmt = $conn->prepare($query4);
+		
+		$stmt->bindParam(':date_facture', $date_debut);
+		$stmt->bindParam(':h_facture', $time);
+	
+		$stmt->bindParam(':id_client', $id);
+	
+		$stmt->execute();
+
 		header('location: index.php');
 		
 		$conn = null;
+		
+
 	}
+
+
 ?>

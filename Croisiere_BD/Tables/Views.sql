@@ -7,6 +7,7 @@ pragma foreign_keys=true;
 DROP VIEW IF EXISTS vWBestBatimentsByCompagnies;
 DROP VIEW IF EXISTS vWNombreDeReservation;
 DROP VIEW IF EXISTS vWFactureClient;
+DROP VIEW IF EXISTS vWListReservationClient;
 
 /*Batiments mieux côtés*/
 
@@ -77,8 +78,20 @@ SELECT * FROM vWNombreDeReservation;
 
 CREATE VIEW vWFactureClient
 as
-SELECT nom as Client, prix as Prix, date_facture as Date_Facturation, h_facture as Heure
-FROM Factures NATURAL JOIN Clients;
+SELECT id_facture as N°Facture, Clients.nom as Client, Clients.prenom as Prenom, Rangs.type_rang as Cabines ,Rangs.prix as Prix,date_facture as Date_Facturation, h_facture as Heure
+FROM Factures NATURAL JOIN Clients NATURAL JOIN Rangs;
 
 SELECT * FROM vWFactureClient;
+
+
+
+/* Liste des reservations par client */
+
+
+CREATE VIEW vWListReservationClient
+as
+SELECT Clients.nom as Nom,Clients.prenom as Prenom, Rangs.type_rang as Cabines ,Rangs.prix as Prix, date_debut as Date_D, date_fin as Date_F
+FROM Reservations NATURAL JOIN Clients NATURAL JOIN Rangs;
+
+SELECT * FROM vWListReservationClient;
 

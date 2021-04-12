@@ -12,3 +12,4 @@
 .import ../../CSV/Activites.csv Activites
 
 .read ../../Tables/Views.sql
+.read ../../Tables/Triggers.sql

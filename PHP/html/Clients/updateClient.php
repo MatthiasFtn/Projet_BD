@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../css/tables.css">
-    <title>¨Projet Base de Données</title>
+    <title>Projet Base de Données</title>
 
     
 
@@ -177,6 +177,7 @@
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
                 <tr>
+                    <th><a href="http://localhost:1234/html/main.html">Retour</a>
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Age</th>
@@ -187,10 +188,12 @@
                     while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
                 ?>
                         <tr>
+                            <td></td>
                             <td><?php echo $rows['nom'] ?></td>
                             <td><?php echo $rows['prenom'] ?></td>
                             <td><?php echo $rows['age'] ?></td>
                             <td><?php echo $rows['sexe'] ?></td>
+                            
 
                         </tr>
                 <?php
@@ -199,7 +202,23 @@
             </thead>
             
         </table>
+
+                        <div class="form-group">
+                            
+                            <label>Clients</label>
+                            <select required name="id_client"  id="id_client" class="form-control">  
+                                <option value="">Choisir</option>    
+                                <?php foreach($rows as $value): ?>              
+                                    <option id="<?php echo $value['id_client'];?>"  value="<?php echo $value['id_client'];?>">
+                                        <?php echo $value['nom']; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>                          
+                            </div>
+                    
     </div>
+
+                    
 
 </body>
 

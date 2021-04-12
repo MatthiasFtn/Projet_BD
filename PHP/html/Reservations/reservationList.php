@@ -3,7 +3,7 @@
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM vWNombreDeReservation");
+    $statement = $pdo->query("SELECT * FROM Reservations");
 
 ?>
 
@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../css/tables.css">
-    <title>¨Projet Base de Données</title>
+    <title>Projet Base de Données</title>
 
     
 
@@ -171,32 +171,29 @@
     </svg>
 </div>
 
-    <h1>Nombre de réservation par période</h1>
+    <h1>Liste réservation</h1>
        
     <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
-                <tr>
-                    <th>Réservation Hiver</th>
-                    <th>Réservation Printemps</th>
-                    <th>Réservation Ete</th>
-                    <th>Réservation Automne</th>
+        
+				<tr>
+                <th><a href="http://localhost:1234/html/main.html">Retour</a></th>
+					<th>Date de départ</th>
+					<th>Date de retour</th>
                 </tr>
-
-                <?php
-                    while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
-                ?>
-                        <tr>
-                            <td><?php echo $rows['Hiver'] ?></td>
-                            <td><?php echo $rows['Printemps'] ?></td>
-                            <td><?php echo $rows['Ete'] ?></td>
-                            <td><?php echo $rows['Automne'] ?></td>
-
-                        </tr>
-                <?php
-                    }
-                ?>
-            </thead>
+				<?php
+					while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
+				?>
+				<tr>
+                    <td></td>
+					<td><?php echo $rows['date_debut']?></td>
+					<td><?php echo $rows['date_fin']?></td>
+				</tr>
+				<?php
+					}
+					
+				?>
+		</table>
             
         </table>
     </div>
