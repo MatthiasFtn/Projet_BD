@@ -82,7 +82,7 @@ CREATE TABLE Clients (
 
 CREATE TABLE Rangs(
 	id_rang INTEGER not null,
-	type_rang VARCHAR(20) not null CHECK (type_rang = 'interieur' OR type_rang ='vue mer' OR type_rang = 'vue balcon' OR type_rang = 'suite'),
+	type_rang VARCHAR(20) not null CHECK (type_rang = 'Interieur' OR type_rang ='Vue mer' OR type_rang = 'Vue balcon' OR type_rang = 'Suite'),
 	prix INT CHECK (prix > 0),
 
 	CONSTRAINT pk_rang primary key (id_rang)
