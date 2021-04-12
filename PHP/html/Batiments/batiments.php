@@ -186,7 +186,6 @@
                         <td></td>
                         <td><?php echo $rows['nom_batiment'] ?></td>
                         <td><?php echo $rows['superficie'] ?></td>
-                        <td><?php echo $rows['nb_chambre'] ?></td>
 
                     </tr>
             <?php
