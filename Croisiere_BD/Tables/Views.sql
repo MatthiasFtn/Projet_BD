@@ -25,9 +25,11 @@ WITH Moyenne as (
 
 )
 SELECT * FROM Moyenne;
-
-
+select 'View vWBestBatimentsByCompagnies';
 SELECT * FROM vWBestBatimentsByCompagnies;
+select '';
+
+
 
 
 /*Nombre de periode avec le plus de réservation*/
@@ -38,7 +40,6 @@ SELECT * FROM vWBestBatimentsByCompagnies;
 -- Eté Juin - Septembre     // Période 2
 -- Automne Septembre - Décembre     // Période 3
 */
-
 
 CREATE VIEW vWNombreDeReservation
 as
@@ -68,30 +69,33 @@ Automne as (
 
 )
 SELECT * FROM Hiver, Printemps, Ete, Automne;
-
-
+select 'View vWNombreDeReservation';
 SELECT * FROM vWNombreDeReservation;
+select '';
+
 
 
 /* Facture du client selectionné */
-
 
 CREATE VIEW vWFactureClient
 as
 SELECT id_facture as N°Facture, Clients.nom as Client, Clients.prenom as Prenom, Rangs.type_rang as Cabines ,Rangs.prix as Prix,date_facture as Date_Facturation, h_facture as Heure
 FROM Factures NATURAL JOIN Clients NATURAL JOIN Rangs;
-
+select 'View vWFactureClient';
 SELECT * FROM vWFactureClient;
+select '';
+
 
 
 
 /* Liste des reservations par client */
-
 
 CREATE VIEW vWListReservationClient
 as
 SELECT Clients.nom as nom,Clients.prenom as prenom, Rangs.type_rang as type_rang ,Rangs.prix as prix, date_debut, date_fin
 FROM Reservations NATURAL JOIN Clients NATURAL JOIN Rangs;
 
+select 'View vWListReservationClient';
 SELECT * FROM vWListReservationClient;
+select '';
 

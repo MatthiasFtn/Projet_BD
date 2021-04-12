@@ -149,29 +149,3 @@ CREATE TABLE Notes(
 
 
 
-
-
-
--- SELECT * FROM Compagnies;
-
-
--- SELECT * FROM Batiments;
-
-
--- SELECT * FROM Reservations;
-
-
-/* ////////// VOIR SI VRAIMENT UTILE //////////
-
-CREATE TABLE Groupes(
-
-
-);
-
-
-CREATE TABLE Restaurants(
-
-
-);
-*/
-

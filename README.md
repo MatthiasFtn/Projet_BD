@@ -5,7 +5,7 @@
 * Se rendre dans le fichier **Croisiere_BD\SQLite\sqlite-tools-win32-x86-3350200**
 * Exectuer sqlite3.exe
 * Entrer les commandes suivante :
-	**.open Projet_Croisiere.db**  &&  **.read ../../Tables/Tables.sql**
+	**.read Start.sql**
 
 ## Execution du Projet SQL avec l'interface (HTML/PHP)
 * PHP doit être au préalable installer et configurer correctement. Pour se faire suivez les instructions dans cette vidéo:

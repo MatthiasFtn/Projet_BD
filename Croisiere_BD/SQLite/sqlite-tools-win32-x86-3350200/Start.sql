@@ -11,5 +11,6 @@
 .import ../../CSV/Rangs.csv Rangs
 .import ../../CSV/Activites.csv Activites
 
+.read ../../Tables/Insertion.sql
 .read ../../Tables/Views.sql
 .read ../../Tables/Triggers.sql
