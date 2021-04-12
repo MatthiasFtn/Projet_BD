@@ -59,12 +59,13 @@
 		$stmt->execute();
 
 
+		$date = date('Y-m-d');
 
 		$query4 = "INSERT INTO Factures(date_facture, h_facture, id_client) VALUES (:date_facture, :h_facture, :id_client)";
 		
 		$stmt = $conn->prepare($query4);
 		
-		$stmt->bindParam(':date_facture', $date_debut);
+		$stmt->bindParam(':date_facture', $date);
 		$stmt->bindParam(':h_facture', $time);
 	
 		$stmt->bindParam(':id_client', $id);
