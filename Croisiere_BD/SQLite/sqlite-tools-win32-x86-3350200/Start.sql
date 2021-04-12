@@ -9,5 +9,6 @@
 .import ../../CSV/Factures.csv Factures
 .import ../../CSV/Clients.csv Clients
 .import ../../CSV/Rangs.csv Rangs
+.import ../../CSV/Activites.csv Activites
 
 .read ../../Tables/Views.sql

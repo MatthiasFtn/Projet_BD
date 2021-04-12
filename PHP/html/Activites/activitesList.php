@@ -3,7 +3,7 @@
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM Batiments");
+    $statement = $pdo->query("SELECT * FROM Activites");
 
     
     $pdo->lastInsertID();
@@ -174,27 +174,23 @@
 </div>
 
     <div id="tables" >
-        <h1>Batiments</h1>
+        <h1>Activités</h1>
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
-                <!-- <th>ID</th> -->
-                <th>Nom Batiments</th>
-                <th>Superficie</th>
-                <th>Nombre de chambre</th>
-                <!-- <th>ID Compagnie</th> -->
-                <!-- <th>ID Chambre</th> -->
+                <th>Nom activité</th>
+                <th>Date</th>
+                <th>Heure début</th>
+                <th>Heure fin</th>
             </tr>
 
             <?php
                 while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
             ?>
                     <tr>
-                        <!-- <td><?php echo $rows['id_batiment'] ?></td> -->
-                        <td><?php echo $rows['nom_batiment'] ?></td>
-                        <td><?php echo $rows['superficie'] ?></td>
-                        <td><?php echo $rows['nb_chambre'] ?></td>
-                        <!-- <td><?php echo $rows['id_compagnie'] ?></td> -->
-                        <!-- <td><?php echo $rows['id_chambre'] ?></td> -->
+                        <td><?php echo $rows['nom_activite'] ?></td>
+                        <td><?php echo $rows['jour_activite'] ?></td>
+                        <td><?php echo $rows['h_debut_activite'] ?></td>
+                        <td><?php echo $rows['h_fin_activite'] ?></td>
 
                     </tr>
             <?php

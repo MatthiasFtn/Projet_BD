@@ -131,7 +131,7 @@ CREATE TABLE Factures(
 CREATE TABLE Activites(
 	id_activite INTEGER not null,
 	nom_activite VARCHAR(30) not null,
-	jour_activite DATE, 
+	jour_activite VARCHAR(10), 
 	h_debut_activite TIME not null,
 	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite),
 
