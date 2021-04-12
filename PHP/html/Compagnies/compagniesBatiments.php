@@ -3,7 +3,7 @@
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM Compagnies ");
+    $statement = $pdo->query("SELECT * FROM Compagnies NATURAL JOIN Batiments");
 
 ?>
 
@@ -179,11 +179,11 @@
             </tr>
 
             <?php
-                while($rows = $statement->fetchAll(PDO::FETCH_ASSOC)){
+                while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
             ?>
                     <tr>
                         <td><?php echo $rows['nom_compagnie'] ?></td>
-                        <td><?php echo $rows['id_batiment'] ?></td>
+                        <td><?php echo $rows['nom_batiment'] ?></td>
 
                     </tr>
             <?php
