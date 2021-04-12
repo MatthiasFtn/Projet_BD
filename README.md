@@ -30,7 +30,7 @@
 * Puis dans le répertoire dans lequel a été PHP (*C:\xampp\php* si vous l'avez installer sur votre disque local), chercher le fichier le fichier **php.ini-development**
 * Faire une copie de se fichier et renommer le en **php.ini**
 
-* Ouvrer le fichier php.ini avec un editeur de text et scroller dans le fichier jusque appercevoir les extension comme sur l'image si dessous.
+* Ouvrer le fichier php.ini avec un editeur de text et scroller dans le fichier jusque appercevoir les extensions comme sur l'image si dessous.
 ![image](screens/screen1.png)
 
 * Décommenter les lignes comme sur l'image si dessous (en retirant le symbole *;*).
