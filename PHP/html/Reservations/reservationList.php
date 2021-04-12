@@ -1,8 +1,6 @@
 <?php
-    // Define PDO - Tell aboit database file
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
-
-    // Write SQL 
+    
     $statement = $pdo->query("SELECT * FROM Reservations");
 
 ?>

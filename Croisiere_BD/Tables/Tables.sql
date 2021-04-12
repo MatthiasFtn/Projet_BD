@@ -20,16 +20,13 @@ CREATE TABLE Batiments(
 	id_batiment INTEGER not null,
 	nom_batiment VARCHAR(30) not null,
 	superficie INT not null,
-	nb_chambre INT not null,
 		
 	id_compagnie INTEGER,
-	id_chambre INTEGER,
 
-	CONSTRAINT pk_batiment primary key (id_batiment, id_compagnie, id_chambre)
+	CONSTRAINT pk_batiment primary key (id_batiment)
 
 
 	CONSTRAINT fk_batiment
-	FOREIGN KEY (id_chambre) REFERENCES Chambres(id_chambre)
 	FOREIGN KEY (id_compagnie) REFERENCES Compagnies(id_compagnie) 
 	
 );
