@@ -174,8 +174,8 @@
     <h1>Compagnies</h1>
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
-                <th>Compagnie</th>
-                <th>Batiment</th>
+                <th>Compagnies</th>
+                <th>Batiments</th>
             </tr>
 
             <?php
