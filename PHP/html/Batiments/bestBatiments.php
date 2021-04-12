@@ -176,6 +176,7 @@
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
             <tr>
+                <th><a href="http://localhost:1234/html/main.html">Retour</a>
                 <th>Moyenne</th>
                 <th>Nom Batiments</th>
                 <th>Nom Compagnies</th>
@@ -185,6 +186,7 @@
                 while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
             ?>
                     <tr>
+                        <td></td>
                         <td><?php echo $rows['Evalutaion'] ?></td>
                         <td><?php echo $rows['Batiment'] ?></td>
                         <td><?php echo $rows['Compagnie'] ?></td>

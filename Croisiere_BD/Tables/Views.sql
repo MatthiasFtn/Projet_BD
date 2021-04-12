@@ -90,7 +90,7 @@ SELECT * FROM vWFactureClient;
 
 CREATE VIEW vWListReservationClient
 as
-SELECT Clients.nom as Nom,Clients.prenom as Prenom, Rangs.type_rang as Cabines ,Rangs.prix as Prix, date_debut as Date_D, date_fin as Date_F
+SELECT Clients.nom as nom,Clients.prenom as prenom, Rangs.type_rang as type_rang ,Rangs.prix as prix, date_debut, date_fin
 FROM Reservations NATURAL JOIN Clients NATURAL JOIN Rangs;
 
 SELECT * FROM vWListReservationClient;

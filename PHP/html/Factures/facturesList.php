@@ -3,10 +3,8 @@
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM Batiments");
+    $statement = $pdo->query("SELECT * FROM Factures");
 
-    
-    $pdo->lastInsertID();
 ?>
 
 <!DOCTYPE html>
@@ -173,30 +171,31 @@
     </svg>
 </div>
 
-    <div id="tables" >
-        <h1>Batiments</h1>
+    <h1>Nombre de réservation par période</h1>
+       
+    <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
-                <th><a href="http://localhost:1234/html/main.html">Retour</a>
-                <th>Nom Batiments</th>
-                <th>Superficie</th>
-                <th>Nombre de chambre</th>
-            </tr>
+                <tr>
+                    <th><a href="http://localhost:1234/html/main.html">Retour</a>
+                    <th>Date de facturation</th>
+                    <th>Heure de facturation</th>
+                </tr>
 
-            <?php
-                while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
-            ?>
-                    <tr>
-                        <td></td>
-                        <td><?php echo $rows['nom_batiment'] ?></td>
-                        <td><?php echo $rows['superficie'] ?></td>
-                        <td><?php echo $rows['nb_chambre'] ?></td>
+                <?php
+                    while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
+                ?>
+                        <tr>
+                            <td></td>
+                            <td><?php echo $rows['date_facture'] ?></td>
+                            <td><?php echo $rows['h_facture'] ?></td>
 
-                    </tr>
-            <?php
-                }
-            ?>
+                        </tr>
+                <?php
+                    }
+                ?>
             </thead>
+            
         </table>
     </div>
 

@@ -174,14 +174,16 @@
     <h1>Compagnies</h1>
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
+                <th><a href="http://localhost:1234/html/main.html">Retour</a>
                 <th>Nom Compagnie</th>
-                <th>ID Batiment</th>
+                <th>ID Batiment Associés</th>
             </tr>
 
             <?php
                 while($rows = $statement->fetch(PDO::FETCH_ASSOC)){
             ?>
                     <tr>
+                        <td></td>
                         <td><?php echo $rows['nom_compagnie'] ?></td>
                         <td><?php echo $rows['id_batiment'] ?></td>
 
