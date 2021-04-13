@@ -48,7 +48,7 @@ CREATE TABLE RecapReservation(
 
 /* 
 * 
-* Trigger qui permet la création des réservations d'un client avec toute les informations nécessaire, qui stock ensuite les valeurs ajoutés dans les tables correspondants
+* Trigger qui permet la création des réservations d'un client avec toute les informations nécessaire, qui stock ensuite les valeurs ajoutées  dans les tables correspondants
 * On affiche en dessous les tableaux affichant les anciennes et les nouvelles infos des tableaux RecapReservation, Clients, Reservations et Factures;
 */
 
