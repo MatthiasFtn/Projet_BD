@@ -44,7 +44,6 @@ SELECT * FROM vWBestBatimentsByCompagnies;
 
 
 
-
 /*Nombre de periode avec le plus de réservation*/
 
 /* 
