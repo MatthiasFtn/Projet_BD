@@ -4,7 +4,7 @@ pragma foreign_keys=true;
 .width 10 10 10 10 10 10
 .headers on
 
-DROP VIEW IF EXISTS vWBestBatimentsByCompagnies;
+DROP VIEW IF EXISTS vWBestBatimentsParCompagnies;
 DROP VIEW IF EXISTS vWNombreDeReservation;
 DROP VIEW IF EXISTS vWFactureClient;
 DROP VIEW IF EXISTS vWListReservationClient;
@@ -22,7 +22,7 @@ DROP VIEW IF EXISTS vWListReservationClient;
 .print " "
 
 
-CREATE VIEW vWBestBatimentsByCompagnies
+CREATE VIEW vWBestBatimentsParCompagnies
 as
 WITH Moyenne as (
     SELECT AVG(note) as Evalutaion, nom_batiment as Batiment, nom_compagnie as Compagnie 
@@ -37,9 +37,9 @@ WITH Moyenne as (
 )
 SELECT * FROM Moyenne;
 
-.print " View vWBestBatimentsByCompagnies "
+.print " View vWBestBatimentsParCompagnies "
 .print " "
-SELECT * FROM vWBestBatimentsByCompagnies;
+SELECT * FROM vWBestBatimentsParCompagnies;
 .print " "
 
 

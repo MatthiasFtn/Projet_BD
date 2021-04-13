@@ -160,7 +160,7 @@ END;
 .print " "
 .print " "
 .print "Table avant l execution du Trigger n°3 "
-SELECT * FROM vWBestBatimentsByCompagnies;
+SELECT * FROM vWBestBatimentsParCompagnies;
 
 .print " "
 .print " "
@@ -171,7 +171,7 @@ INSERT INTO Notes(note,id_batiment) VALUES(5,10);
 .print " "
 .print " "
 .print "Tables après l execution du Trigger n°3 :"
-SELECT * FROM vWBestBatimentsByCompagnies;
+SELECT * FROM vWBestBatimentsParCompagnies;
 
 
 

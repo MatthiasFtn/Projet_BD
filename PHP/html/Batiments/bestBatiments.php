@@ -4,7 +4,7 @@
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM vWBestBatimentsByCompagnies");
+    $statement = $pdo->query("SELECT * FROM vWBestBatimentsParCompagnies");
 
 ?>
 
