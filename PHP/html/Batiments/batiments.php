@@ -1,5 +1,6 @@
 <?php
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $statement = $pdo->query("SELECT * FROM Batiments");
 
@@ -176,6 +177,7 @@
                 <th><a href="http://localhost:1234/html/main.html">Retour</a>
                 <th>Nom Batiments</th>
                 <th>Superficie</th>
+                <th>IDs Compagnie associée</th>
             </tr>
 
             <?php
@@ -185,6 +187,7 @@
                         <td></td>
                         <td><?php echo $rows['nom_batiment'] ?></td>
                         <td><?php echo $rows['superficie'] ?></td>
+                        <td><?php echo $rows['id_compagnie'] ?></td>
 
                     </tr>
             <?php

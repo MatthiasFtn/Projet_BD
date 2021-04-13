@@ -1,6 +1,7 @@
 <?php
     // Define PDO - Tell aboit database file
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Write SQL 
     $statement = $pdo->query("SELECT * FROM Factures");
@@ -180,6 +181,7 @@
                     <th><a href="http://localhost:1234/html/main.html">Retour</a>
                     <th>Date de facturation</th>
                     <th>Heure de facturation</th>
+                    <th>IDs Client associé</th>
                 </tr>
 
                 <?php
@@ -189,6 +191,7 @@
                             <td></td>
                             <td><?php echo $rows['date_facture'] ?></td>
                             <td><?php echo $rows['h_facture'] ?></td>
+                            <td><?php echo $rows['id_client'] ?></td>
 
                         </tr>
                 <?php

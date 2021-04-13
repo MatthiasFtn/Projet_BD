@@ -67,7 +67,6 @@ CREATE TABLE Clients (
 	prenom VARCHAR(30) not null, 
 	age INT not null CHECK (age >= 18), 
 	sexe VARCHAR(5) not null CHECK (sexe = 'homme' or sexe = 'femme'),
-
 	id_rang INT,
 
 	CONSTRAINT pk_client primary key (id_client)
@@ -131,16 +130,18 @@ CREATE TABLE Activites(
 	h_debut_activite TIME not null,
 	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite),
 
+
 	CONSTRAINT pk_activite primary key (id_activite)
+
 );
 
 CREATE TABLE Notes(
 	id_note INTEGER not null,
-	note INT CHECK ( note BETWEEN 0 AND 5),
+	note INT CHECK ( note >=0 AND note <= 5),
 	
 	id_batiment INTEGER,
 	
-	CONSTRAINT pk_note primary key (id_note, id_batiment)
+	CONSTRAINT pk_note primary key (id_note)
 
 	CONSTRAINT fk_note
 	FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment) 

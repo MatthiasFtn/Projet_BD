@@ -6,34 +6,53 @@ pragma foreign_keys=true;
 .headers on
 
 
-select 'Table Batiments';
+.print " "
+.print " "
+.print " "
+.print " /**********************************************************************************************/"
+.print " /*                                          TABLES                                            */"
+.print " /**********************************************************************************************/"
+.print " "
+.print " "
+.print " "
+
+
+.print " Table Batiments "
+.print " "
 SELECT * FROM Batiments;
-select '';
+.print " "
 
-select 'Table Compagnies';
+.print " Table Compagnies "
+.print " "
 SELECT * FROM Compagnies;
-select '';
+.print " "
 
-select 'Table Reservations';
+.print " Table Reservations "
+.print " "
 SELECT * FROM Reservations;
-select '';
+.print " "
 
-select 'Table Notes';
+.print " Table Notes "
+.print " "
 SELECT * FROM Notes;
-select '';
+.print " ";
 
-select 'Table Factures';
+.print " Table Factures "
+.print " "
 SELECT * FROM Factures;
-select '';
+.print " "
 
-select 'Table Clients';
+.print " Table Clients "
+.print " "
 SELECT * FROM Clients;
-select '';
+.print " "
 
-select 'Table Rangs';
+.print " Table Rangs "
+.print " "
 SELECT * FROM Rangs;
-select '';
+.print " "
 
-select 'Table Activites';
+.print " Table Activites "
+.print " "
 SELECT * FROM Activites;
-select '';
+.print " "

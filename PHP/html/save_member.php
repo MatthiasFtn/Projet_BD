@@ -13,15 +13,11 @@
 		$date_fin = $_POST['date_fin'];
 		$type_rang = $_POST['id_rang'];
 
-		$query = "INSERT INTO recapReservation (nom,prenom,age,sexe,type_rang,date_debut,date_fin) VALUES (:nom,:prenom,:age,:sexe,:type_rang, :date_debut,:date_fin)";
-		$stmt = $conn->prepare($query);
 		
-		$stmt->execute();
+		
+		$conn->exec($query);
 
-		header('location: index.php');
-		
-		$conn = null;
-		
+		$statement = $conn->query("INSERT INTO recapReservation (nom,prenom,age,sexe,type_rang,date_debut,date_fin) VALUES (:nom,:prenom,:age,:sexe,:type_rang, :date_debut,:date_fin)");
 		// // rangs
 
 		// $id_rang = $_POST['id_rang'];
@@ -88,11 +84,11 @@
 	
 		// $stmt->bindParam(':id_client', $id);
 	
-		// $stmt->execute();
+		$statement->execute();
 
-		// header('location: index.php');
+		header('location: index.php');
 		
-		// $conn = null;
+		$conn = null;
 		
 
 	}

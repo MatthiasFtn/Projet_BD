@@ -1,5 +1,6 @@
 <?php
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $statement = $pdo->query("SELECT * FROM Reservations");
 

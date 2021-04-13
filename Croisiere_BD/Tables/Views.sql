@@ -11,6 +11,17 @@ DROP VIEW IF EXISTS vWListReservationClient;
 
 /*Batiments mieux côtés*/
 
+.print " "
+.print " "
+.print " "
+.print " /**********************************************************************************************/"
+.print " /*                                          VIEW                                              */"
+.print " /**********************************************************************************************/"
+.print " "
+.print " "
+.print " "
+
+
 CREATE VIEW vWBestBatimentsByCompagnies
 as
 WITH Moyenne as (
@@ -25,9 +36,11 @@ WITH Moyenne as (
 
 )
 SELECT * FROM Moyenne;
-select 'View vWBestBatimentsByCompagnies';
+
+.print " View vWBestBatimentsByCompagnies "
+.print " "
 SELECT * FROM vWBestBatimentsByCompagnies;
-select '';
+.print " "
 
 
 
@@ -69,9 +82,10 @@ Automne as (
 
 )
 SELECT * FROM Hiver, Printemps, Ete, Automne;
-select 'View vWNombreDeReservation';
+.print " View vWNombreDeReservation "
+.print " "
 SELECT * FROM vWNombreDeReservation;
-select '';
+.print " "
 
 
 
@@ -81,9 +95,10 @@ CREATE VIEW vWFactureClient
 as
 SELECT id_facture as N°Facture, Clients.nom as Client, Clients.prenom as Prenom, Rangs.type_rang as Cabines ,Rangs.prix as Prix,date_facture as Date_Facturation, h_facture as Heure
 FROM Factures NATURAL JOIN Clients NATURAL JOIN Rangs;
-select 'View vWFactureClient';
+.print " View vWFactureClient "
+.print " "
 SELECT * FROM vWFactureClient;
-select '';
+.print " "
 
 
 
@@ -96,7 +111,8 @@ SELECT Clients.nom as nom,Clients.prenom as prenom, Rangs.type_rang as type_rang
 FROM Reservations NATURAL JOIN Clients NATURAL JOIN Rangs
 WHERE Reservations.id_client = Clients.id_client;
 
-select 'View vWListReservationClient';
+.print " View vWListReservationClient "
+.print " "
 SELECT * FROM vWListReservationClient;
-select '';
+.print " "
 

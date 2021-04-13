@@ -1,7 +1,8 @@
-<?php
+<!-- <?php
     // Define PDO - Tell aboit database file
     $pdo = new PDO('sqlite:../database/Projet_Croisiere.db');
 
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Write SQL 
     $statement = $pdo->query("SELECT * FROM Clients");
 
@@ -223,4 +224,4 @@
 </body>
 
 </html>
-
+ -->
