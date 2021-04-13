@@ -132,7 +132,6 @@ CREATE TABLE Activites(
 	h_debut_activite TIME not null,
 	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite),
 
-
 	CONSTRAINT pk_activite primary key (id_activite)
 
 );
