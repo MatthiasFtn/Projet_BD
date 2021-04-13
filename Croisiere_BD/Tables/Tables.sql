@@ -68,11 +68,13 @@ CREATE TABLE Clients (
 	age INT not null CHECK (age >= 18), 
 	sexe VARCHAR(5) not null CHECK (sexe = 'homme' or sexe = 'femme'),
 	id_rang INT,
+	id_batiment INT,
 
 	CONSTRAINT pk_client primary key (id_client)
 
 	CONSTRAINT fk_client
 	FOREIGN KEY (id_rang) REFERENCES Rangs(id_rang)
+	FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment)
 	
 );
 

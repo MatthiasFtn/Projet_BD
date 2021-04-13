@@ -5,7 +5,7 @@
     
 
     // Write SQL 
-    $statement = $pdo->query("SELECT * FROM Clients");
+    $statement = $pdo->query("SELECT * FROM Clients JOIN Batiments ON Clients.id_batiment = Batiments.id_batiment");
 
 ?>
 
@@ -184,6 +184,7 @@
                     <th>Prénom</th>
                     <th>Age</th>
                     <th>Sexe</th>
+                    <th>Batiments</th>
                 </tr>
 
                 <?php
@@ -195,8 +196,7 @@
                             <td><?php echo $rows['prenom'] ?></td>
                             <td><?php echo $rows['age'] ?></td>
                             <td><?php echo $rows['sexe'] ?></td>
-                            
-
+                            <td><?php echo $rows['nom_batiment'] ?></td>
                         </tr>
                 <?php
                     }

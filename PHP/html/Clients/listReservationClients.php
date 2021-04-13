@@ -181,6 +181,7 @@
                     <th><a href="http://localhost:1234/html/main.html">Retour</a>
                     <th>Nom</th>
 					<th>Prenom</th>
+                    <th>Batiments</th>
                     <th>Cabines</th>
                     <th>Prix</th>
 					<th>Date de départ</th>
@@ -194,6 +195,7 @@
                             <td></td>
                             <td><?php echo $rows['nom'] ?></td>
                             <td><?php echo $rows['prenom'] ?></td>
+                            <td><?php echo $rows['nom_batiment'] ?></td>
                             <td><?php echo $rows['type_rang'] ?></td>
                             <td><?php echo $rows['prix'] ?></td>
                             <td><?php echo $rows['date_debut'] ?></td>

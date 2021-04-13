@@ -165,6 +165,7 @@
 		<br/><br/></th>
 					<th>Nom</th>
 					<th>Prenom</th>
+                    <th>Batiments</th>
                     <th>Cabines</th>
                     <th>Prix</th>
                     <th>Date de facturation</th>
@@ -185,12 +186,14 @@
                     <td></td>
 					<td><?php echo $fetch['nom']?></td>
 					<td><?php echo $fetch['prenom']?></td>
+                    <td><?php echo $fetch['nom_batiment']?></td>
                     <td><?php echo $fetch['type_rang']?></td>
 					<td><?php echo $fetch['prix']?></td>
                     <td><?php echo $fetch['date_facture']?></td>
                     <td><?php echo $fetch['h_facture']?></td>
 					<td><?php echo $fetch['date_debut']?></td>
 					<td><?php echo $fetch['date_fin']?></td>
+                    
 				</tr>
 				<?php
 					}
@@ -236,6 +239,33 @@
                                     <option value="femme">Femme</option>
                                 </select>
                             </div>
+
+
+                            <div class="form-group">
+                            <label>Batiments</label>
+                                <select type="text" name="nom_batiment" class="form-control" required="required">
+                               
+                                <option value="" disabled selected>Choisir</option>
+                                    <option value="1">Azamara journey</option>
+                                    <option value="2">Azamara pursuit</option>
+                                    <option value="3">Azamara quest</option>
+                                    <option value="4">Costa Atlantica</option> 
+                                    <option value="5">Costa Deliziosa</option>
+                                    <option value="6">Costa Atlantica</option>
+                                    <option value="7">Celebrity Apex</option>
+                                    <option value="8">Celebrity Eclipse</option> 
+                                    <option value="9">Celebrity Constellation</option>
+                                    <option value="10">Queen Elizabeth</option> 
+                                    <option value="11">Queen Mary 2</option>
+                                    <option value="12">Queen Victoria</option>
+                                    <option value="13">MSC Armonia</option> 
+                                    <option value="14">Celebrity Constellation</option>
+                                    <option value="15">MSC Bellissima</option> 
+
+                                </select>
+                                
+                            </div>
+
 
                             <div class="form-group">
                             <label>Cabines</label>

@@ -9,6 +9,7 @@
 		$prenom = $_POST['prenom'];
 		$age = $_POST['age'];
 		$sexe = $_POST['sexe'];
+		$date_debut = $_POST['nom_batiment'];
 		$date_debut = $_POST['date_debut'];
 		$date_fin = $_POST['date_fin'];
 		$type_rang = $_POST['id_rang'];
@@ -17,7 +18,7 @@
 		
 		$conn->exec($query);
 
-		$statement = $conn->query("INSERT INTO recapReservation (nom,prenom,age,sexe,type_rang,date_debut,date_fin) VALUES (:nom,:prenom,:age,:sexe,:type_rang, :date_debut,:date_fin)");
+		$statement = $conn->query("INSERT INTO recapReservation (nom,prenom,age,sexe,nom_batiment,type_rang,date_debut,date_fin) VALUES (:nom,:prenom,:age,:sexe,:nom_batiment,:type_rang, :date_debut,:date_fin)");
 		// // rangs
 
 		// $id_rang = $_POST['id_rang'];

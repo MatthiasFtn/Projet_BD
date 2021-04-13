@@ -17,6 +17,7 @@ CREATE TABLE RecapReservation(
     prenom VARCHAR(20), 
     age INT,
     sexe VARCHAR(5), 
+    nom_batiment VARCHAR(20), 
     type_rang VARCHAR(10), 
     prix INT,
     date_facture DATE,
@@ -28,6 +29,7 @@ CREATE TABLE RecapReservation(
     id_reservation INT,
     id_rang INT,
     id_facture INT,
+    id_batiment INT,
 
 
     CONSTRAINT pk_recapReservation primary key (Id)
@@ -37,6 +39,7 @@ CREATE TABLE RecapReservation(
     FOREIGN KEY (id_reservation) REFERENCES Reservations(id_reservation) 
     FOREIGN KEY (id_rang) REFERENCES Rangs(id_rang)
     FOREIGN KEY (id_facture) REFERENCES Factures(id_facture)
+    FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment)
 );
 
 
@@ -52,7 +55,7 @@ CREATE TABLE RecapReservation(
 CREATE TRIGGER trigger_create_reservation
     AFTER INSERT ON RecapReservation
 BEGIN
-    INSERT INTO Clients(nom, prenom, age, sexe, id_rang) VALUES(new.nom,new.prenom,new.age,new.sexe,new.id_rang);
+    INSERT INTO Clients(nom, prenom, age, sexe, id_rang,id_batiment) VALUES(new.nom,new.prenom,new.age,new.sexe,new.id_rang,new.id_batiment);
     INSERT INTO Reservations(date_debut, date_fin,h_reservation,id_client) VALUES(new.date_debut, new.date_fin, strftime('%H:%M:%S',new.date_debut), new.id_client);
     INSERT INTO Factures(date_facture,h_facture,id_client) VALUES(new.date_facture, strftime('%H:%M:%S','now', 'localtime'), new.id_client);
     
@@ -78,10 +81,10 @@ SELECT * FROM Factures;
 .print " "
 .print " "
 .print " Execution du Trigger n°1 ---->"
-INSERT INTO RecapReservation VALUES(1,'Simspon','Bart',18,'homme','Suite','550',DATE(),TIME('now'),'2022-03-13','2022-05-23',11,11,4,11);
-INSERT INTO RecapReservation VALUES(2,'Simspon','Lisa',18,'femme','Suite','550',DATE(),TIME('now'),'2022-03-13','2022-05-23',12,12,4,12);
-INSERT INTO RecapReservation VALUES(3,'Simspon','Marge',30,'femme','Suite','550',DATE(),TIME('now'),'2022-03-13','2022-05-23',13,13,4,13);
-INSERT INTO RecapReservation VALUES(4,'Simspon','Homer',40,'homme','Suite','550',DATE(),TIME('now'),'2022-03-13','2022-05-23',14,14,4,14);
+INSERT INTO RecapReservation VALUES(1,'Simspon','Bart',18,'homme','Azamara pursuit' ,'Suite','550',DATE(),TIME('now'),'2022-03-13','2022-05-23',11,11,4,11,2);
+INSERT INTO RecapReservation VALUES(2,'Simspon','Lisa',18,'femme', 'Azamara pursuit','Suite','550',DATE(),TIME('now'),'2022-03-13','2022-05-23',12,12,4,12,2);
+INSERT INTO RecapReservation VALUES(3,'Simspon','Marge',30,'femme','Azamara pursuit' ,'Suite','550',DATE(),TIME('now'),'2022-03-13','2022-05-23',13,13,4,13,2);
+INSERT INTO RecapReservation VALUES(4,'Simspon','Homer',40,'homme', 'Azamara pursuit','Suite','550',DATE(),TIME('now'),'2022-03-13','2022-05-23',14,14,4,14,2);
 
 
 
@@ -128,9 +131,7 @@ SELECT * FROM RecapReservation;
 .print " "
 .print " "
 .print " Execution du Trigger n°2 ---->"
-UPDATE RecapReservation
-SET nom ="FONTAINE", prenom ="Matthias", age=21, sexe ="femme"
-WHERE id_client = 11;
+UPDATE RecapReservation SET nom="FONTAINE", prenom="Matthias", age=21, sexe="femme" WHERE id_client = 11;
 
 .print " "
 .print " "
