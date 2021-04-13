@@ -93,7 +93,8 @@ select '';
 CREATE VIEW vWListReservationClient
 as
 SELECT Clients.nom as nom,Clients.prenom as prenom, Rangs.type_rang as type_rang ,Rangs.prix as prix, date_debut, date_fin
-FROM Reservations NATURAL JOIN Clients NATURAL JOIN Rangs;
+FROM Reservations NATURAL JOIN Clients NATURAL JOIN Rangs
+WHERE Reservations.id_client = Clients.id_client;
 
 select 'View vWListReservationClient';
 SELECT * FROM vWListReservationClient;

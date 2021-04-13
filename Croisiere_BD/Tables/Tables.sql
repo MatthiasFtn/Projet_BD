@@ -65,7 +65,7 @@ CREATE TABLE Clients (
 	id_client INTEGER not null,
 	nom VARCHAR(30) not null,
 	prenom VARCHAR(30) not null, 
-	age INT not null CHECK (age > 18), 
+	age INT not null CHECK (age >= 18), 
 	sexe VARCHAR(5) not null CHECK (sexe = 'homme' or sexe = 'femme'),
 
 	id_rang INT,
@@ -145,6 +145,7 @@ CREATE TABLE Notes(
 	CONSTRAINT fk_note
 	FOREIGN KEY (id_batiment) REFERENCES Batiments(id_batiment) 
 );
+
 
 
 

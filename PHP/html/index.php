@@ -167,6 +167,8 @@
 					<th>Prenom</th>
                     <th>Cabines</th>
                     <th>Prix</th>
+                    <th>Date de facturation</th>
+                    <th>Heure de facturation</th>
 					<th>Date de départ</th>
 					<th>Date de retour</th>
 				</tr>
@@ -174,7 +176,7 @@
 				<?php
 					require 'conn.php';
 
-					$query = $conn->prepare("SELECT nom, prenom, type_rang, prix, date_debut, date_fin FROM Reservations JOIN Clients on Reservations.id_client = Clients.id_client JOIN Rangs ON Clients.id_rang = Rangs.id_rang ORDER BY 'nom' ASC");
+					$query = $conn->prepare("SELECT * FROM RecapReservation");
 					$query->execute();
 
 					while($fetch = $query->fetch()){
@@ -185,6 +187,8 @@
 					<td><?php echo $fetch['prenom']?></td>
                     <td><?php echo $fetch['type_rang']?></td>
 					<td><?php echo $fetch['prix']?></td>
+                    <td><?php echo $fetch['date_facture']?></td>
+                    <td><?php echo $fetch['h_facture']?></td>
 					<td><?php echo $fetch['date_debut']?></td>
 					<td><?php echo $fetch['date_fin']?></td>
 				</tr>
