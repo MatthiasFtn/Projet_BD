@@ -128,7 +128,7 @@ CREATE TABLE Factures(
 CREATE TABLE Activites(
 	id_activite INTEGER not null,
 	nom_activite VARCHAR(30) not null,
-	jour_activite VARCHAR(10), 
+	jour_activite VARCHAR(10) CHECK (jour_activite = 'Lundi' or jour_activite = 'Mardi' or jour_activite = 'Mercredi' or jour_activite = 'Jeudi' or jour_activite = 'Vendredi' or jour_activite = 'Samedi' or jour_activite = 'Dimanche'), 
 	h_debut_activite TIME not null,
 	h_fin_activite TIME not null CHECK (h_fin_activite > h_debut_activite),
 
