@@ -91,7 +91,7 @@ INSERT INTO RecapReservation VALUES(4,'Simspon','Homer',40,'homme', 'Azamara pur
 .print " "
 .print " "
 .print " "
-.print " Tables Clients , Reservation et Facture avant execution du Trigger n°1"
+.print " Tables Clients , Reservation et Facture après execution du Trigger n°1"
 SELECT * FROM Clients;
 SELECT * FROM Reservations;
 SELECT * FROM Factures;
@@ -99,7 +99,7 @@ SELECT * FROM Factures;
 
 .print " "
 .print " "
-.print "Tables qui stock les valeurs avant l execution du Trigger n°1 : RecapReservation"
+.print "Tables qui stock les valeurs après l execution du Trigger n°1 : RecapReservation"
 SELECT * FROM RecapReservation;
 
 
